@@ -1,8 +1,8 @@
-=======================
-Wprowadzenie do Pythona
-=======================
+======================
+Introduction to Python
+======================
 
-Zacznijmy od uruchomienia interpretera, który zainstalowaliśmy w poprzednim rozdziale:
+Let’s start with the running of interpreter which we installed in a previous chapter:
 
 .. code-block:: sh
 
@@ -12,12 +12,12 @@ Zacznijmy od uruchomienia interpretera, który zainstalowaliśmy w poprzednim ro
 
     >>>
 
-Teraz możemy coś policzyć, np. wpisując ``2 + 2``:
+Now we can count something, for example: 2 + 2
 
     >>> 2 + 2
     4
 
-Python świetnie sprawdza się jako kalkulator:
+Python is excellent as a calculator:
 
     >>> 6 * 7
     42
@@ -32,28 +32,26 @@ Python świetnie sprawdza się jako kalkulator:
     >>> 5 / 2
     2
 
-Ten ostatni wynik może być dość zaskakujący. Oczekiwaliśmy raczej dostać
-dwa i pół. Z drugiej strony, dotąd używaliśmy jedynie liczb całkowitych,
-więc Python nie ma powodu aby zmuszać nas do posługiwania się ułamkami.
-Ale możemy zrobić to sami:
+This last result can be quite surprising. We expected rather get two and a half. On the other hand, so
+far we have used only whole numbers so for  Python there is no reason to force us to use fractions. 
+But we can do it by ourselves:
 
     >>> 5.0 / 2
     2.5
 
-Należy zwrócić szczególną uwagę, że ułamki dziesiętne zapisujemy zgodnie
-z zasadami języka angielskiego, czyli z kropką zamiast przecinka.
-Przecinki będą nam służyły do definiowania :ref:`krotek <bmi-tuples>` (ang. ``tuple``),
-ale o tym później.
+It is important to note that we type decimals with a dot instead of comma, the same as in english.
+Commas will serve us to define tuples :ref:`krotek <bmi-tuples>` (eng. ``tuple``),
+but more on that later.
 
 
-Przedstaw się
-=============
+Introduce yourself
+==================
 
-Napisy
-------
+Strings
+-------
 
-Same liczby to jednak trochę za mało do skutecznego porozumiewania się.
-Musimy się, więc nauczyć posługiwać napisami (ang. ``string``). Oto kilka przykładów:
+Only numbers, however, are not enough to communicate effectively. We have to learn how to use strings.
+Here are some examples:
 
     >>> "Hello World"
     'Hello World'
@@ -64,41 +62,39 @@ Musimy się, więc nauczyć posługiwać napisami (ang. ``string``). Oto kilka p
     >>> 'My name is "James"'
     'My name is "James"'
 
-Napisy można również dodawać:
+It is also possible to add strings like that:
 
     >>> 'My name is ' + '"James"'
     'My name is "James"'
 
-oraz mnożyć przez liczby całkowite:
+and multiply it by whole numbers:
 
     >>> 'Hastur' * 3
     'HasturHasturHastur'
 
-Napis zawsze musi się zaczynać i kończyć tym samym znakiem.  Może to
-być apostrof (``'``) albo cudzysłów (``"``). Nie ma to wpływu na
-wartość napisu, tzn. wpisując ``"Batman"`` tworzymy napis ``Batman`` -
-cudzysłowowy nie są jego częścią, służą jedynie wskazaniu, że jest to
-napis (niestety Python nie jest aż tak sprytny aby się tego domyślić).
+The string must always begin and end with the same character. This may be an apostrophe (‘) or double
+quotes (“). This does not affect the value of the string, for example, while typing “Batman” we 
+create a string Batman - quotes are not a part of it. They serve only to indicate that it is a string
+(unfortunately Python is not that smart to figure it).
 
 
-Drukowanie napisów
-------------------
+Printing the strings
+--------------------
 
-Jak w takim razie przedstawić wartość w postaci czytelnej dla człowieka?
-Do tego posłuży nam funkcja :func:`print`:
+But how to present value in a readable form?
+We can do it by using the function print :func:`print`:
 
-    >>> print("Witaj świecie")
-    Witaj świecie
+    >>> print("Hello World")
+    Hello World
 
-Możemy w ten sposób wypisać kilka napisów w jednej linii, bez
-dodawania ich do siebie. Zostaną one oddzielone od siebie spacjami:
+We can thus write several strings in a single line, without adding them to each other. They will be 
+separated by spaces:
 
-    >>> print("Cześć, mam na imię", "Łukasz")
-    Cześć, mam na imię Łukasz
+    >>> print("Hi, my name is", "Lucas")
+    Hi, my name is Lucas
 
-Funkcja :func:`print` ma też dużo więcej zastosowań, bo potrafi
-wypisać niemalże wszystko. Na razie jedynym innym znanym nam rodzajem wartości
-są liczby:
+:func:`print` has also a lot more applications because it could print almost everything. For now, the 
+only other kind of values we know are numbers:
 
     >>> print(1)
     1
@@ -107,99 +103,91 @@ są liczby:
     >>> print("2 + 2 =", 2 + 2)
     2 + 2 = 4
 
-Na razie na tym skończymy naszą pracę z konsolą interaktywną. Aby z niej
-wyjść wpisz poprostu `quit()`::
+For now, this will end our work with an interactive console. To get out of it, just type `quit()`::
 
     >>> quit()
 
 
-Pliki źródłowe
-==============
+Source files
+============
 
-Dotąd cały nasz kod wykonywany był w tzw. trybie interaktywnym, gdzie
-podajemy komendy pojedynczo i natychmiast dostajemy na nie odpowiedź.
-Jest to świetny sposób na eksperymentowanie i poznawanie nowych elementów
-języka, więc jeszcze do niego wrócimy.
+So far our code was executed in an interactive mode where we give commands separately and immediately 
+get an answer. It’s a great way to experiment and learn new language elements, so we will be back here.
 
-Nasz pierwszy program może wyglądać tak::
+Our first program might look like this::
 
-    print("Cześć, mam na imię Łukasz.")
+    print("Hi, my name is Lucas")
 
-Uruchom program z linii poleceń:
+Run the program from a command line: 
 
 .. code-block:: sh
 
-    $ python wizytowka.py
-    Cześć, mam na imię Łukasz.
+    $ python businesscard.py
+    Hi, my name is Lucas.
     $
 
-Pojedynczy program może zawierać więcej niż jedno polecenie. Każde powinno znajdować
-się w osobnej linii, np.::
+A single program can contain more than one command. each should be on a separate line, for example::
 
-    print("Cześć,")
+    print("Hi,")
     print("")
 
-    print("Mam na imię Łukasz.")
+    print("My name is Lucas.")
 
     print("")
-    print("Papa.")
+    print("Bye.")
 
-Puste linie nic nie robią, ale pozwalają oddzielić wizualnie różne części
-programu, tak aby ułatwić rozczytanie jego treści. Tutaj rozdzieliliśmy
-nagłówek wiadomości od jej treści i zakończenia.
+Blank lines do not do anything but help visually separate the various parts of the program in order to
+facilitate reading its content. Here we split the message header from the content and conclusion.
 
 
-Kalkulator BMI
+BMI calculator
 ==============
 
-Teraz napiszemy prosty program do obliczania `BMI` (`Body Mass Index`_).
-Formuła do jego obliczenia jest następująca:
+Now we type a simple program to calculate `BMI` (`Body Mass Index`_).
+The formula for its calculation is as follows:
 
-    BMI = (masa w kg) / (wzrost w metrach) do kwadratu
+    BMI = (mass in kg) / (height in m) squared
 
-Umiemy dzielić, potęgować i wypisywać liczby. Stwórzmy więc nowy plik
-o nazwie ``bmi.py`` i spróbujmy napisać program obliczający nasze BMI:
+We know how to share, enhance, and print out the numbers. So let's create a new file called ``bmi.py``
+and type a program that calculates our BMI:
 
 .. testcode::
 
-    print("Twoje BMI to:", 65.5 / (1.75)**2)
+    print("Your BMI is:", 65.5 / (1.75)**2)
 
-Po uruchomieniu::
+After starting::
 
     $ python bmi.py
 
-W wyniku dostaniemy:
+In a result we get:
 
 .. testoutput::
 
-    Twoje BMI to: 21.387755102
+    Your BMI is:: 21.387755102
 
-Jak widać nasz program ma kilka problemów:
+As you can see our program has a few problems:
 
-1. Jeśli ktoś inny chciałby skorzystać z tego programu, musi on
-   zmienić jego treść. W dodatku musi się domyślić, które wartości
-   ma zmienić.
+1. If someone else would like to use this program, changing its content will be necessary. Furthermore 
+   how he or she have to guess which values should change. 
 
-2. Osobie, która nie zna na pamięć tabelki BMI wartość `21.387755102`
-   nic nie powie.
+2. For a person who does not know the value of BMI table, value `21.387755102` won’t say anything.
 
-3. Wypisywanie tylu miejsc po przecinku jest zbędne. BMI mierzy
-   się z dokładnością do dwóch miejsc po przecinku.
+3. Printing so many decimal places is unnecessary. BMI is measured with an accuracy of two decimal 
+   places.
 
-Ale programowanie, to w końcu sztuka rozwiązywania problemów, więc
-do dzieła. Przy okazji poznamy kilka nowych elementów Pythona.
+But programming is finally art of solving problems, so get to work. On this occasion we will see some
+new elements of Python.
 
 .. _`Body Mass Index`: http://pl.wikipedia.org/wiki/Body_Mass_Index
 
 
-Nazwy
+Names
 =====
 
-Spróbujmy, więc rozwiązać pierwszy problem. Na początek chcielibyśmy,
-aby nasz program był bardziej czytelny, tj. aby dla czytającego
-było oczywiste, która wartość to waga, a która wzrost.
+Let’s try to solve the first problem. At the beginning we would like to make our program more readable,
+that's mean that reader should have sure which value means weight and which means height.
 
-W tym celu nadamy tym wartościom nazwy:
+In this purpose we will name the values:
 
 .. testcode::
 
@@ -207,66 +195,61 @@ W tym celu nadamy tym wartościom nazwy:
     height = 1.75
 
     bmi = weight / height**2
-    print("Twoje BMI to:", bmi)
+    print("Your BMI is:", bmi)
 
-Wynik działania programu się nie zmienił:
+The result of the program has not changed:
 
 .. testoutput::
 
-    Twoje BMI to: 21.387755102
+    Your BMI is: 21.387755102
 
 
-Aby lepiej zrozumieć jak działają nazwy wróćmy na chwilę do trybu
-interaktywnego i nadajmy kilka nazw:
+To better understand how the names are working, let’s go back for a moment to the interactive mode and name something:
 
     >>> x = 42
     >>> PI = 3.1415
     >>> name = "Amelia"
-    >>> print("Rzeczy:", x, PI, name)
-    Rzeczy: 42 3.1415 Amelia
+    >>> print("Things:", x, PI, name)
+    Things: 42 3.1415 Amelia
 
-Możemy też nadać wiele nazw tej samej wartości:
+We can also give a lot of names for the same value:
 
     >>> y = x
     >>> print(x, y)
     42 42
 
-Możemy też dowolnie zmieniać wartość przypisaną do nazwy. Nie musi
-ona być tego samego typu co poprzednio:
+We can also change the value assigned to the name. It doesn’t need to be the same type as before:
+
 
     >>> x = 13
     >>> print(x)
     13
-    >>> x = "Skarabeusz"
+    >>> x = "Scarab"
     >>> print(x)
-    Skarabeusz
+    Scarab
 
-Nazwy są niezależne od siebie. Przed chwilą przypisaliśmy do ``x``
-nową wartość, jednak wartość przypisana do ``y`` pozostaje bez zmian:
+The names are independent of each other. We have just assigned to``x``
+the new value, but the value assigned to ``y`` is unchanged:
 
     >>> print(y)
     42
 
-.. note:: Dla znających inne języki.
+.. note:: For those who know other languages.
 
-    Pewnie dziwi Cię dlaczego nie używamy pojęcia "zmienna". To dlatego,
-    że nazwy w Pythonie nie działają tak samo jak zmienne. W większości
-    języków operacja ``y = x`` stworzyłaby kopię wartości ``x``
-    i wstawiła ją do zmiennej ``y``.
+    You probably wonder why we do not use the term "variable". This is because the names in Python do 
+    not work the same way as variables. n most languages, the operation ``y = x`` would create a copy
+    of the``x`` and interceded for the variable ``y``.
 
-    W Pythonie nigdy nic nie jest kopiowane. ``y`` staje się jedynie
-    alternatywną nazwą do tej samej wartości. Jeśli zmienimy tą wartość,
-    zarówno ``x`` jak i ``y`` pokażą to samo.
+    In Python nothing is ever duplicated. ``y`` becomes the only alternative name for the same value.
+    If you change this value, both the``x`` and ``y`` show the same thing.
 
-    W naszym przykładzie nie zmieniliśmy wartości liczby ``42``, lecz
-    jedynie wartość przypisaną do ``x`` (w szczególności wartości
-    liczb są niezmienne, choć w 1897 w izba niższa stanu Indiana
-    zatwiedziła zmianę wartości liczby π na ``3``; wniosek
-    upadł dopiero w Senacie). Dlatego ``print(y)`` da nam ``42``.
+    In our example we did not change the number of  ``42``, but only the value assigned to ``x`` (in 
+    particular, the numbers are immutable, but in 1897 the lower house of the Indiana accepted change
+    the value of the number  π to ``3``; proposal fell only in the Senate). Therefore, ``print(y)``
+    will give us ``42``.
 
 
-Jak już widzieliśmy w naszym programie, nazwy możemy nadawać też
-wynikom obliczeń oraz używać w obliczeniach:
+As we saw earlier, we can give names to the results of our calculations and use it in the calculations:
 
     >>> w = 65.5
     >>> h = 175.0 / 100.0
@@ -274,57 +257,54 @@ wynikom obliczeń oraz używać w obliczeniach:
     >>> print(w, h, bmi)
     65.5 1.75 21.387755102
 
-Jednak raz wyliczona wartość się nie zmienia:
+But once calculated value doesn’t change:
 
     >>> w = 64
     >>> print(w, h, bmi)
     64 1.75 21.387755102
 
-Dopóki nie każemy Pythonowi wyliczyć jej ponownie:
+Unless we tell Python to calculate it again:
 
     >>> bmi = w / h**2
     >>> print(w, h, bmi)
     64 1.75 20.8979591837
 
-Na koniec tego rozdziału dodamy kilka komentarzy
-do naszego programu, aby użytkownik (i my sami) pamiętał, że wagę
-należy podać w kilogramach.
+At the end of this chapter we will add some comments to our program so the user (and ourselves)
+remember that the weight has to be given in kilograms.
 
-Komentarzem w Pythonie jest wszystko po znaku ``#`` aż do końca linii::
+Comment in Python is everything after the sign ``#`` until the end of the line::
 
     # -*- coding: utf-8
 
-    # Waga w kilogramach
+    # Weight in kilograms
     weight = 65.5
 
-    # Wzrost w metrach
+    # Height in meters
     height = 1.75
 
-    bmi = weight / height**2 # Obliczamy BMI
-    print("Twoje BMI to:", bmi)
+    bmi = weight / height**2 # Count BMI
+    print("Your BMI is:", bmi)
 
-Okazuje się, że wspomniana wcześniej formuła ``coding`` była zwykłym
-komentarzem. No może nie takim zwykłym, bo w odróżnieniu od innych,
-które są *całkowicie ignorowane*, wpływa na działanie programu. Jednak
-my czytając program możemy ją ignorować.
+It turns out that the above mentioned formula ``coding`` was simple commentary. Ok, maybe not so 
+usual, because this special comment, as distinct from others which are *completely ignored* , is
+influencing program works. However, while reading the program, it can be ignored.
 
 
-Wywoływanie funkcji
-===================
+Calling a function
+==================
 
-Nasz program wygląda już całkiem nieźle, ale użytkownik chcąc policzyć
-swoje BMI nadal musi zmieniać treść programu. Wygodniej byłoby móc
-po uruchomieniu programu mógł wpisać wymagane wartości w konsoli
-i otrzymać z powrotem swoje BMI.
+Our program looks quite good, but wanting to calculate your BMI you still have to change the content
+of the program.  It would be more convenient when to enter the required values ​​in the console and get
+back your BMI.
 
-Aby móc napisać taki program musimy nauczyć się posługiwać funkcjami.
-Pierwszą, która poznamy będzie :func:`help`:
+To be able to write such a program we need to learn how to use the functions.
+The first function we are going to learn is :func:`help`:
 
     >>> help
     Type help() for interactive help, or help(object) for help about object.
 
-:func:`help` jest bardzo przyjazną funkcją, bo sama nam mówi jak powinniśmy jej
-używać. Jest też nam w stanie powiedzieć jak używać innych funkcji:
+:func:`help` function is very friendly - it tells us how we should use it. We are also able to tell
+you how to use the other functions:
 
     >>> help(raw_input)  # doctest: +SKIP
     Help on built-in function raw_input in module __builtin__:
@@ -337,26 +317,25 @@ używać. Jest też nam w stanie powiedzieć jak używać innych funkcji:
         On Unix, GNU readline is used if enabled.  The prompt string, if given,
         is printed without a trailing newline before reading. ...
 
-Właśnie :func:`raw_input` będziemy używać do wczytywania danych od użytkownika.
-Zgodnie z opisem wczytuję ona napis::
+func:`raw_input` will be used to load data from the user.
+As at description, it's loading a string:
 
-.. TODO : wywołanie funkcji a funkcja, trzeba dopisać "()".
+.. TODO : to call a function you need to add "()".
 
     >>> raw_input()
-    ala ma kota
-    'ala ma kota'
+    Alice has a cat
+    'Alice has a cat'
 
-Funkcja ta będzie bardziej użyteczna jeśli zapamiętamy wczytany
-napis pod jakąś nazwą::
+This function will be more useful if you remember loaded string below the name::
 
     >>> name = raw_input()
     Joanna
     >>> name
     'Joanna'
-    >>> print('Twoje imię to:", name)
-    Twoje imię to: Joanna
+    >>> print('Your name is:", name)
+    Your name is: Joanna
 
-Czy to już wystarcza nam do poprawienia programu ?
+Is that enough to improve our program?
 
 .. testsetup:: raw_input_test
 
@@ -373,12 +352,11 @@ Czy to już wystarcza nam do poprawienia programu ?
       File "<stdin>", line 1, in <module>
     TypeError: cannot concatenate 'str' and 'int' objects
 
-Jak widać Python nie wie o co nam chodzi i jakiego właściwie wyniku
-oczekujemy. Jak pokazaliśmy wcześniej zarówno napisy (``str``) jak i liczby (``int``)
-można do siebie dodawać. Tak, więc czy chodzi nam o liczbę ``63.5`` czy
-napis ``"60.53"``? Tylko my to wiemy i musimy zawrzeć tą informację w programie.
+As you can see, Python doesn’t know what result we expect. As we showed before, both subtitles (``str``
+) and the numbers (``int``) can be added together. So, are we referring to the number ``63.5`` or to
+the string ``"60.53"``? Only we know that and we have to  include this information in the program.
 
-Poznajmy, więc dwie kolejne funkcję:
+Let’s get to know two more functions:
 
     >>> help(int)  # doctest: +NORMALIZE_WHITESPACE
     Help on class int in module __builtin__:
@@ -388,7 +366,7 @@ Poznajmy, więc dwie kolejne funkcję:
     |
     |  Convert a string or number to an integer, if possible. ...
 
-oraz:
+and:
 
     >>> help(float)  # doctest: +NORMALIZE_WHITESPACE
     Help on class float in module __builtin__:
@@ -399,14 +377,13 @@ oraz:
     |  Convert a string or number to a floating point number, if possible.
     |  ...
 
-Funkcja :func:`help` nie omieszkała nas poinformować, iż w rzeczywistości
-:func:`int` i :func:`float` nie są funkcjami, lecz klasami
-(o czym będzie więcej później) - stąd też informacja na temat wszystkich
-innych rzeczy, do których można ich użyć. Nas na razie interesuje
-jedynie podstawowa funkcjonalność zamiany napisów na liczby
-odpowiedniego typu.
+The function :func:`help` do not hesitate to inform us that, in fact,
+:func:`int` and :func:`float` are not functions, but classes
+(we will talk more about it later) - hence the information about all the other things that you can use
+it for. For now, we are only interested in only the basic functionality of the conversion of subtitles 
+for the number of the appropriate type.
 
-Przetestujmy :func:`int` i :func:`float`:
+Let’s try out :func:`int` and :func:`float`:
 
     >>> int("0")
     0
@@ -424,21 +401,20 @@ Przetestujmy :func:`int` i :func:`float`:
     60.5
 
 
-Zanim skorzystamy z nowo poznanych funkcji w naszym programie,
-skonstruujmy oczekiwany plan jego działania:
+Before we use the newly described functions in our program, let’s construct a plan for its activities:
 
-1. Poproś użytkownika o podanie wzrostu
-2. Wczytaj od użytkownika napis i zapamiętaj go pod jakąś nazwą ``height``
-3. Zamień napis na liczbę z ułamkiem
-4. Poproś użytkownika o podanie wagi
-5. Wczytaj od użytkownika napis i zapamiętaj pod nazwą ``weight``
-6. Zamień napis na liczbę z ułamkiem
-7. Korzystając z zapamiętanych wartości oblicz BMI i zapamiętaj jako ``bmi``
-8. Wypisz obliczone BMI
+1. Ask the user to enter a height
+2. Load a string from the user and remember it under a name ``height``
+3. Replace the string with the number of fraction
+4. Ask the user to enter the weight
+5. Load a string from the user and remember it under the name of ``weight``
+6. Replace the string with the number of fraction
+7. Using the remembered values ​​calculate BMI and save as ``bmi``
+8. Print calculated BMI
 
 
-Nie powinno nas zaskoczyć, że te osiem punktów można wprost
-przełożyć na osiem linii naszego programu (nie licząc odstępów):
+t should not surprise us that these eight points can be directly translated into eight lines of our
+program (not counting spaces):
 
 .. testsetup::
 
@@ -447,60 +423,59 @@ przełożyć na osiem linii naszego programu (nie licząc odstępów):
 
 .. testcode::
 
-    print("Podaj wzrost w metrach:")
+    print("Height in meters:")
     height = raw_input()
     height = float(height)
 
-    print("Podaj wagę w kilogramach:")
+    print("Weight in kilograms:")
     weight = raw_input()
     weight = float(weight)
 
-    bmi = weight / height**2 # Obliczamy BMI
-    print("Twoje BMI to:", bmi)
+    bmi = weight / height**2 # Count BMI
+    print("Your BMI is:", bmi)
 
 .. testoutput::
 
-    Podaj wzrost w metrach:
+    Height in meters:
     1.75
-    Podaj wagę w kilogramach:
+    Weight in kilograms:
     65.5
-    Twoje BMI to: 21.387755102
+    Your BMI is: 21.387755102
 
 
-Podsumowując, aby wywołać funkcję musimy znać jej nazwę (poznaliśmy
-dotąd pięć: :func:`help`, :func:`raw_input`, :func:`int`, :func:`float` i :func:`quit`),
-oraz jakich danych ona od nas oczekuję (tzw. lista argumentów).
+In conclusion, to call the function we need to know its name (yet we met five: :func:`help`,
+:func:`raw_input`, :func:`int`, :func:`float` i :func:`quit`),
+and what data it expects from us (the list of arguments).
 
-Podanie samej nazwy nie wywoła funkcji, powie nam jedynie, że to funkcja:
+Entering the name itself does not cause the function. It will tell us only that there is a function:
 
     >>> raw_input  # doctest: +SKIP
     <built-in function raw_input>
 
-Wszystkie argumenty podajemy w nawiasach. Aby podać więcej niż jeden,
-rozdzielamy je przecinkiem:
+All arguments are given in parentheses. To specify more than one, separate them with a comma:
 
     >>> int("FF", 16)
     255
 
 
-Sprawdzanie warunków
-====================
+Checking conditions
+===================
 
-Przejdźmy do naszego następnego problemu. Chcemy aby nasz program
-wypisał odpowiednią dla obliczonego BMI klasyfikację korzystając z poniższej tabeli:
+Let’s go to our next problem. We want our program to print appropriate classification for calculated
+BMI by using the table below:
 
 
 =====================   ==================
-   BMI                      Klasyfikacja
+   BMI                     Classification
 =====================   ==================
- < 18,5                      niedowaga
- 18,5 – 24,99             waga prawidłowa
- ≥ 25,0                       nadwaga
+ < 18,5                     underweight
+ 18,5 – 24,99              normal weight
+ ≥ 25,0                      overweight
 =====================   ==================
 
 
-Skorzystamy więc z tzw. instrukcji warunkowej :keyword:`if`, która
-wykonuje dalszą część programu pod podanym warunkiem:
+We have to use the conditional statement :keyword:`if`. It will finish the rest of the program under
+one of following conditions:
 
 .. testsetup::
 
@@ -509,36 +484,36 @@ wykonuje dalszą część programu pod podanym warunkiem:
 
 .. testcode::
 
-    print("Podaj wzrost w metrach:")
+    print("Height in meters:")
     height = raw_input()
     height = float(height)
 
-    print("Podaj wagę w kilogramach:")
+    print("Weight in kilograms:")
     weight = raw_input()
     weight = float(weight)
 
     bmi = weight / height**2 # Obliczamy BMI
 
     if bmi < 18.5:
-        print("niedowaga")
+        print("underweight")
     elif bmi < 25.0:
-        print("waga prawidłowa")
+        print("normal weight")
     else:
-        print("nadwaga")
+        print("overweight")
 
 .. testoutput::
 
-    Podaj wzrost w metrach:
+    Height in meters:
     1.75
-    Podaj wagę w kilogramach:
+    Weight in kilograms:
     65.5
-    waga prawidłowa
+    normal weight
 
-Porównania, prawda czy fałsz?
------------------------------
+Comparisons, true or false 
+--------------------------
 
-Pierwszym elementem, o którym jeszcze nie wspomnieliśmy, są porównania.
-Dla liczb działają one identycznie jak na lekcjach matematyki:
+The first element which wasn’t  mentioned yet, are comparisons. For numbers they act exactly like
+during the math lessons:
 
     >>> 2 > 1
     True
@@ -553,8 +528,8 @@ Dla liczb działają one identycznie jak na lekcjach matematyki:
     >>> -1 != 0
     True
 
-Wynikiem porównania jest zawsze ``True`` albo ``False``. Można je łączyć
-w bardziej skomplikowane warunki za pomocą słów :keyword:`and` oraz
+The result of comparison is always ``True`` or ``False``.They can be combined into more complex
+conditions by using words:keyword:`and` and
 :keyword:`or`:
 
     >>> x = 5
@@ -570,19 +545,18 @@ w bardziej skomplikowane warunki za pomocą słów :keyword:`and` oraz
     True
 
 
-Wcięcia
+Indents
 -------
 
-Kolejna rzecz na którą warto zwrócić uwagę, to wcięcia w kodzie.
-Otwórz tryb interaktywny i wpisz prosty warunek, np.::
+Another thing you should pay attention to is the indentation in the code. Open the interactive mode
+and type a simple condition, such as::
 
     >>> if 2 > 1:
     ...
 
-Na razie nic się jeszcze nie wydarzyło, o czym świadczą kropki zamiast
-zachęty ``>>>`` którą dotąd widzieliśmy. Python oczekuje od nas dalszych
-instrukcji, które mają wyć wykonane jeśli warunek ``2 > 1`` okaże się
-prawdziwy. Niech wypisze on "OK"::
+So far nothing happened, as evidenced by a dot instead of incentives ``>>>`` that we've seen until now.
+Python expects us to give more  instructions which are supposed to be done if condition ``2 > 1``
+turns to be true. Then it could print "OK"::
 
     >>> if 2 > 1:
     ... print("OK")
@@ -591,17 +565,17 @@ prawdziwy. Niech wypisze on "OK"::
             ^
     IndentationError: expected an indented block
 
-Niestety, nie udało się nam. Python musi wiedzieć czy instrukcja, którą
-wpisaliśmy, jest kontynuacją :keyword:`if` czy kolejną instrukcją nie
-objętą warunkiem. W tym celu musimy wciąć nasz kod:
+Unfortunately, we did not succeed.Python needs to know whether the instruction we wrote is a
+continuation of :keyword:`if` or the next instruction not covered by condition. To this purpose we
+need to indent our code:
 
     >>> if 2 > 1:
     ...  print("OK")
     ...
     OK
 
-Wystarczy do tego jedna spacja albo ``TAB``. Jednak wszystkie linie, które mają
-się wykonywać po sobie, muszą być wcięte tak samo::
+All you need is one space or TAB. However, all the lines that are supposed to be carried one after
+another, should be indented the same::
 
     >>> if -1 > 0:
     ...  print("A")
@@ -627,8 +601,8 @@ się wykonywać po sobie, muszą być wcięte tak samo::
     B
 
 
-Aby uniknąć chaosu, większość programistów Pythona używa czterech spacji
-na każdy poziom wcięcia. My też będziemy tak robić:
+To avoid chaos, most of the Python’ programmers use four spaces for each level of indentation. We will
+continue to do so:
 
     >>> if 2 > 1:
     ...     if 3 > 2:
@@ -640,251 +614,231 @@ na każdy poziom wcięcia. My też będziemy tak robić:
     DONE
 
 
-Co jeśli nie?
--------------
+What if not? 
+------------
 
-Samo :keyword:`if` właściwie by nam wystarczyło do napisania naszego
-programu::
+:keyword:`if` will be actually enough for us to write our program::
 
     if bmi < 18.5:
-        print("niedowaga")
+        print("underweight")
     if bmi >= 18.5:
         if bmi < 25.0:
-            print("waga prawidłowa")
+            print("normal weight")
     if bmi >= 25.0:
-        print("nadwaga")
+        print("overweight")
 
-Jednak użyliśmy jeszcze :keyword:`else` i :keyword:`elif` po to aby
-nie musieć powtarzać podobnych warunków oraz zwiększyć czytelność.
-W bardziej skomplikowanych programach może nie być oczywiste na pierwszy
-rzut oka, że kolejny warunek jest przeciwieństwem poprzedniego.
+However, we used :keyword:`else` and :keyword:`elif` o that we won’t have to repeat similar conditions
+and increase readability. In more complex programs may not be obvious at first glance that another
+condition is the opposite of the previous one.
 
-Korzystając z :keyword:`else` mamy gwarancję, że podane tam instrukcję
-zostaną wykonane tylko jeśli nie zostały wykonane instrukcje wpisane
-pod :keyword:`if`::
+Using :keyword:`else` we have guarantee that instructions will be executed only if other instructions
+haven’t been printed under :keyword:`if`:
+
+::
 
     if bmi < 18.5:
-        print("niedowaga")
+        print("underweight")
     else:
-        # jeśli nasz program wykonuje tę instrukcję,
-        # to na pewno bmi >= 18.5 !
+        # If your program executes this statement,
+        # then for sure bmi >= 18.5 !
         if bmi < 25.0:
-            print("waga prawidłowa")
+            print("normal weight")
         else:
-            # teraz na pewno bmi >= 25.0, więc nie musimy
-            # już tego sprawdzać
-            print("nadwaga")
+            # now for sure bmi >= 25.0, so we don't have to
+            # check it
+            print("overweight")
 
-Zwróć szczególną uwagę na wcięcia ;) Każde użycie :keyword:`else`,
-będzie powodować, że nasz kod będzie coraz bardziej wcięty. Jest to
-bardzo uciążliwe, gdy mamy do sprawdzenia kilka czy kilkanaście
-wykluczających się warunków. Dlatego autorzy języka dodali drobne
-"usprawnienie" w postaci instrukcji :keyword:`elif`, która pozwala
-od razu sprawdzić kolejny warunek::
+Pay particular attention to the indentation ;) Every use of :keyword:`else` will cause bigger indentation of our code. It is very annoying when you have to check a few or several
+mutually exclusive conditions. Therefore little language "streamline" was added in the form of
+instructions  :keyword:`elif`which allows you to immediately see another condition::
 
     if n < 1:
-        print("jeden")
+        print("one")
     elif n < 2:
-        # jeśli nie było n < 1, a jest n < 2
-        print("dwa")
+        # if it wasn’t n < 1, a jest n < 2
+        print("two")
     elif n < 3:
-        # jeśli żaden z poprzednich warunków nie zaszedł, tj.
-        # n >= 1 i n>= 2, ale n < 3
-        print("trzy")
+        # if none of the previous condition was true, that's mean
+        # n >= 1 i n>= 2, but n < 3
+        print("three")
     else:
-        # trole umieją liczyć jedynie do trzech
-        print("dużo")
+        # trolls can count only to three
+        print("a lot")
 
 
-Formatowanie napisów
-====================
+Strings formatting
+==================
 
-Ostatnim problemem, o którym wspomnieliśmy, była zbyt duża ilość cyfr
-w wypisywanym BMI. Z wszystkich trzech, jest on najprostszy do rozwiązania
-dlatego zostawiliśmy go sobie na koniec naszej "przygody" z kalkulatorem
-BMI.
+The last issue which was mentioned it was too much of digits in a printed BMI. Out of the three this
+one is the easiest to solve. That’s we left it for the end of our "adventure" with a BMI calculator. 
 
-Wiemy już, że napisy można dodawać do siebie oraz mnożyć przez
-liczby całkowite. Zaraz zobaczymy, że można też wykonać na nich operację
-formatowania. Jednak najpierw potrzebny nam będzie jeszcze jeden typ
-danych (oprócz napisów i liczb, które już znamy).
+We already know that the labels can be added to each other and multiply integers. You can also format
+on them. But first we will need another data type (except the strings and the numbers we already know).
 
 
 .. _bmi-tuples:
 
-Krotki
+Tuples 
 ------
 
-Na samym początku wspomnieliśmy już, że nie możemy używać przecinka
-w liczbach, bo będzie nam potrzebny później do krotek. A oto i one:
+At the outset we mentioned that we can not use commas in numbers, because we will need them later to
+tuples. And here they are:
 
     >>> 1, 2, 3
     (1, 2, 3)
-    >>> ("Ala", 15)
+    >>> ("Alice", 15)
     ('Ala', 15)
     >>> x = 1,5
     >>> print(x)
     (1, 5)
 
-Krotka to nic innego jak kilka wartości zgrupowanych w jedną. Wartości,
-które chcemy zgrupować rozdzielamy przecinkami. Całość może być otoczona
-nawiasami dla czytelności, ale nie musi. Z wyjątkiem przypadku, gdy
-chcemy zgrupować zero elementów (jakkolwiek dziwnie może to brzmieć):
+A tuple is nothing more than a few values ​​grouped into one. The whole thing can be enclosed in
+parentheses for clarity but it is not required. Except when we want to group none of the element (
+however strange it may sound):
 
     >>> ()
     ()
 
-Krotki można ze sobą łączyć:
+Tuples can be combined:
 
-    >>> names = ("Paulina", "Kowalska")
+    >>> names = ("Anne", "Smith")
     >>> details = (27, 1.70)
     >>> names + details
-    ('Paulina', 'Kowalska', 27, 1.7)
+    ('Anne', 'Smith', 27, 1.7)
 
-Mogą też zawierać inne krotki, np. informację o punkcie na mapie możemy
-zgrupować w następujący sposób::
+They may also contain other tuples. For example the informations about a point on the map can be
+grouped as follows::
 
-    >>> point = ("Nazwa punktu", (x, y))
+    >>> point = ("Name of point", (x, y))
 
-gdzie ``x`` i ``y`` to jakieś liczby.
+where ``x`` and ``y`` are numbers.
 
-Do zgrupowanych wartości możemy odwołać się używając ich pozycji
-w krotce (licząc od zera), np.:
+To the grouped values we can refer by using their positions in the tuple (counting form zero), eg.:
 
     >>> p = (10, 15)
-    >>> p[0]  # pierwsza wartość
+    >>> p[0]  # first value
     10
-    >>> p[1]  # druga wartość
+    >>> p[1]  # second value
     15
 
 
-Formatowanie
-------------
+Formatting 
+----------
 
-Wracając do naszego programu: aktualnie jego wynik sprowadza się do
-jednej linijki. Teraz chcemy wypisać zarówno BMI jako
-liczbę oraz przedział w którym się mieści, tj.::
+Returning to our program: currently the result is reduced to a single line. Now we want to write both
+BMI as the number and the interval in which it is located i.e..::
 
-    Twoje BMI jest równe: 21.39 (waga prawidłowa)
+    Your BMI is equal: 21.39 (normal weight)
 
-Zmodyfikuj aktualny program tak, aby obliczone BMI było dostępne pod
-nazwą ``bmi``, a nazwa przedziału pod nazwą ``category``. Wtedy aby
-uzyskać pożądany wynik możemy użyć :func:`print`:
+Modify the current program so that the calculated BMI was available under the name of ``bmi``, and the
+name of the compartment under the  ``category``. For wanted result we can use:func:`print`:
 
 .. testsetup::
 
     bmi = 21.387755102
-    category = "waga prawidłowa"
+    category = "normal weight"
 
 .. testcode::
 
-    print("Twoje BMI jest równe:", bmi, "(" + category + ")")
+    print("Your BMI is:", bmi, "(" + category + ")")
 
 .. testoutput::
     :hide:
 
-    Twoje BMI jest równe: 21.387755102 (waga prawidłowa)
+    Your BMI is: 21.387755102 (normal weight)
 
-No prawie, nadal mamy zbyt dużo cyfr. W dodatku mielibyśmy problem,
-gdybyśmy chcieli np. wygenerować taki napis i zapamiętać pod jakąś
-nazwą, bo korzystamy z :func:`print` do rozdzielania elementów.
-Na szczęście jest lepszy sposób:
+It's almost it! Still we have too much numbers.  We would also have a problem  if we wanted to
+generate a string and remember it in a name because we use :func:`print` to separate the elements.
+Fortunately, there is a better way:
 
     >>> bmi = 21.387755102
-    >>> category = "waga prawidłowa"
-    >>> wynik = "Twoje BMI: %f (%s)" % (bmi, category)
-    >>> wynik
-    'Twoje BMI: 21.387755 (waga prawid\u0142owa)'
-    >>> print(wynik)
-    Twoje BMI: 21.387755 (waga prawidłowa)
+    >>> category = "normal weight"
+    >>> result = "Your BMI %f (%s)" % (bmi, category)
+    >>> result
+    'Your BMI: 21.387755 (normal weight\u0142owa)'
+    >>> print(result)
+    Your BMI: 21.387755 (normal weight)
 
-Mamy tutaj napis i krotkę połączone znakiem ``%``. Napis jest szablonem,
-który będziemy wypełniać wartościami z krotki. Miejsca do wstawienia
-oznaczone są również procentem (``%``). Litera, która następuję po nim
-określa jakiego rodzaju wartość będziemy chcieli wstawić w to miejsce.
-I tak, liczbom całkowitym odpowiada ``i`` jak **integer** (zamiennie używa się
-też ``d`` jak **decimal**), napisom ``s`` jak **string**, a liczbom
-zmiennoprzecinkowym ``f`` jak **float**:
+We have here a string and a tuple connected by ``%``. The string is a template which will be full of
+the values ​​from the tuple. Space to insert are marked with (``%``). The letter which follow (``%``)
+determines what kind of value we want to insert in its place. 
+Total numbers ``i`` like **integer** (or ``d`` like **decimal**), strings ``s`` jak **string**, and 
+floating point numbers ``f`` like **float**:
 
-    >>> "Napis: %s, Liczby: %d %f" % ("Ala", 10, 3.1415)
-    'Napis: Ala, Liczby: 10 3.141500'
+    >>> "String: %s, Numbers: %d %f" % ("Alice", 10, 3.1415)
+    'String: Alice, Numbers: 10 3.141500'
 
-Co prawda teraz, zamiast dziewięciu miejsc po przecinkuzawsze dostajemy
-sześć, jednak formatowanie ma tą zaletę, że pozwala nam na większą
-kontrolę poprzez wstawienie pomiędzy ``%`` a znak ``f`` dodatkowych
-informacji, np. jeśli chcemy aby wyświetlić tylko dwa miejsca po kropce:
+Admittedly, now we will get six not ten decimal places, but formating have this advantage that give us
+more control by puting between ``%`` and ``f`` some extra information e.g.: if we would like to show
+only two decimal places. 
 
     >>> "%.2f" % 3.1415
     '3.14'
     >>> "%.2f" % 21.387755102
     '21.39'
 
-Opcji formatowania jest mnóstwo, więc nie będziemy ich tu wszystkich
-pokazywać. Jedna z bardziej przydatnych jest wyrównanie do
-konkretnej liczby znaków:
+There are plenty of formatting options so we will not show them all here. One of the more useful is
+compensating for a specific number of characters:
 
 .. testcode::
 
     WIDTH = 28
 
     print("-" * WIDTH)
-    print("| Imię i Nazwisko |  Waga  |")
+    print("| Name and last name |  Weight |")
     print("-" * WIDTH)
-    print("| %15s | %6.2f |" % ("Łukasz", 67.5))
-    print("| %15s | %6.2f |" % ("Pudzian", 123))
+    print("| %15s | %6.2f |" % ("Lucas", 67.5))
+    print("| %15s | %6.2f |" % ("Nowak", 123))
     print("-" * WIDTH)
 
 .. testoutput::
 
-    ----------------------------
-    | Imię i Nazwisko |  Waga  |
-    ----------------------------
-    |          Łukasz |  67.50 |
-    |         Pudzian | 123.00 |
-    ----------------------------
+    --------------------------------
+    | Name and last name | Weight |
+    --------------------------------
+    |              Lucas |  67.50 |
+    |              Nowak | 123.00 |
+    --------------------------------
 
-Możemy też wyrównać napis do lewej dodając ``-`` przed liczbą znaków:
+We can also compensate the string to the left with the ``-`` before the number of characters:
 
 .. testcode::
 
     WIDTH = 28
 
     print("-" * WIDTH)
-    print("| Imię i Nazwisko |  Waga  |")
+    print("| Name and last name |  Weight  |")
     print("-" * WIDTH)
     print("| %-15s | %6.2f |" % ("Łukasz", 67.5))
-    print("| %-15s | %6.2f |" % ("Pudzian", 123))
+    print("| %-15s | %6.2f |" % ("Nowak", 123))
     print("-" * WIDTH)
 
 .. testoutput::
 
-    ----------------------------
-    | Imię i Nazwisko |  Waga  |
-    ----------------------------
-    | Łukasz          |  67.50 |
-    | Pudzian         | 123.00 |
-    ----------------------------
+    --------------------------------
+    | Name and last name |  Weight |
+    --------------------------------
+    | Lucas              |  67.50  |
+    | Nowak              | 123.00  |
+    --------------------------------
 
-Wyrównanie na środek pozostawiamy jako ćwiczenie dla czytelnika ;)
+Compensate to the center it could be an extra exercise for you ;)
 
 
-Podsumowanie
-============
+Summary
+=======
 
-W tym rozdziale poznaliśmy podstawy składni Pythona. Wiemy jak
-zapisać liczby całkowite, liczby zmiennoprzecinkowe, napisy oraz
-krotki z nich złożone.
+In this chapter we learned basics of Python syntax. We know how to print integers, floating point
+numbers, strings and tuples.
 
-Poznaliśmy funkcję :func:`print`, która wypisuje informację
-użytkownikowi oraz funkcję :func:`raw_input`, która je od niego wczytuje.
+We know the function :func:`print`, which is printing the informations for the user and function
+:func:`raw_input`, which is loading it from him.
 
-Wiemy też, że wcięcia mogą mieć znaczenie, szczególnie gdy chcemy użyć
-instrukcji :keyword:`if` (również w połączeniu z :keyword:`else` i :keyword:`elif`).
+We also know that indentation can be important, especially when you want to use the instruction
+:keyword:`if` (also in connection with :keyword:`else` and :keyword:`elif`).
 
-Umiemy stworzyć plik z programem i go uruchomić. Nasz program prosi
-użytkownika aby odpowiedział na kilka prostych pytań, wykonuje obliczenia
-i prezentuje w użytecznej dla niego formię.
+We can create a file with a program and run it. Our program asks the user to answer a few simple
+questions, performs calculations and presents everything in the useful form.
 
-Całkiem sporo jak na nasz pierwszy program. Przed nami jeszcze dużo pracy,
-ale jak najbardziej możemy być dumni z tego co udało nam się zrobić do
-tej pory.
+Quite a lot like for the first program. We still have a lot of work, but you can be proud of what we
+have done so far!

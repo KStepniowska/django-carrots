@@ -1,43 +1,44 @@
 ======================
-Wprowadzenie do Django
+Introduction to Django
 ======================
 
 
-Co to jest Django?
-==================
+What is Django?
+===============
 
-Do tej pory poznaliśmy Pythona. Python to tylko język (i zestaw podstawowych bibliotek), pozwalający tworzyć
-programy. Stworzenie interaktywnej strony w samym Pythonie wymagałoby ogromnego nakładu pracy, dlatego użyjemy Django.
-Django daje nam zestaw narzędzi, funkcji (takich jak poznaliśmy wcześniej, ale bardziej rozbudowanych) i klas
-ułatwiających tworzenie stron.
+So far we know python. Python is just the language (and a set of core libraries) that allows you to
+create programs. Creating interactive website in the Python require a huge amount of work, so we'll
+use Django.
+Django gives us a set of tools, features (such as we learned earlier, but more complex), and classes
+to help you create pages.
+For the fully interactive website we need a few items:
 
-Do w pełni internatywnej strony potrzebne jest nam kilka elementów:
+* application server - here we use Django
+* HTML and CSS files - responsible for the appearance of the website
+* Database - data, such as survey questions and answers, will be stored here.
 
-* serwer aplikacji - Tutaj wykorzystamy Django
-* pliki HTML i CSS - odpowiedzialne za to jak wygląda strona
-* Baza danych - tutaj będą przechowywane dane takie jak pytania ankiety i odpowiedzi.
+We will start by creating an application server.
 
-Zaczniemy od stworzenia serwera aplikacji.
+Installation
+============
 
-Instalacja
-==========
-
-Zainstaluj Django uruchamiając w konsoli:
+Install Django by running on the console:
 
 .. code-block:: sh
 
    ~$ pip install django
 
-Odpowiednia paczka zostanie pobrana z `PyPI <http://pypi.python.org>`_ - repozytorium pakietów Pythona,
-gdzie można znaleźć wiele użytecznych bibliotek.
+A suitable package will be downloaded from `PyPI <http://pypi.python.org>`_ - package repository where
+you can find many useful libraries.
 
 
-Poczatek projektu
-=================
+Beginning of project
+====================
 
-Django dostarcza skrypt administracyjny "django-admin.py". Pozwala on stworzyć szkielet naszej strony.
+Django provides administrative script "django-admin.py". t allows you to create the skeleton of our
+site.
 
-Aby stworzyć nowy projekt ze stroną uruchamiamy:
+To create a new project with the site launch:
 
 .. code-block:: sh
 
@@ -74,25 +75,25 @@ Aby stworzyć nowy projekt ze stroną uruchamiamy:
            __init__.py
 
 
-Struktura projektu
-==================
-
-Nowo utworzony projekt zawiera katalog "carrots" i kilka podstawowych plików.
-
-W pliku ``carrots/settings.py`` znajdują się ustawienia strony takie jak język, baza danych, zainstalowane aplikacje.
-Plik ten możemy edytować sami. Na początku wewnątrz znajdziemy domyślne ustawienia i komentarze wyjaśniające.
-
-Plik ``manage.py`` pozwala administrować stroną, czyli utworzyć lub wyczyścić bazę danych, uruchomić prosty serwer aplikacji
-itp.
-
-Plik ``carrots/urls.py`` zawiera informacje o ścieżkach na stronie.
-
-Pozostałe pliki są mniej ciekawe. Dociekliwych odsyłam do Google.
-
-Ustawienia aplikacji
+Structure of project
 ====================
 
-W pliku ``carrots/carrots/settings.py`` znajdź:
+The newly created project contains a catalog of "carrots" and some basic files.
+
+The file ``carrots/settings.py`` re the settings such as language, database, installed applications.
+We can edit this file by ourselves. Inside you will find the default settings and explanatory comments.
+
+File ``manage.py`` ile allows us to administrate the web site, create or clean up the database, run a
+simple application server, etc.
+
+File ``carrots/urls.py`` ontains information about the tracks on the page.
+
+Other files are less interesting. For more curious we recommend Google.
+
+Setting of application
+======================
+
+In the file ``carrots/carrots/settings.py`` find:
 
 .. code-block:: py
 
@@ -107,11 +108,11 @@ W pliku ``carrots/carrots/settings.py`` znajdź:
        }
    }
 
-Zamień ``'django.db.backends.'`` na ``'django.db.backends.sqlite3'`` oraz dodaj ``'NAME'`` ``'carrots.db'``.
-Plik ``carrots.db`` będzie zawierał bazę danych.
+Rename ``'django.db.backends.'`` to the ``'django.db.backends.sqlite3'`` and add ``'NAME'`` ``'carrots.
+db'``.
+Plik ``carrots.db`` file will contain the database.
 
-Ustaw strefę czasową na Warszawę i domyślny język na polski
-::
+Set the time zone of Warsaw (or other city) and the default language to Polish (or other language)::
 
    # Local time zone for this installation. Choices can be found here:
    # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -124,14 +125,14 @@ Ustaw strefę czasową na Warszawę i domyślny język na polski
    LANGUAGE_CODE = 'pl'
 
 
-Dla uproszczenia wyłączymy też zaawansowaną obsługe stref czasowych w bazie
-danych - nie bedzie ona potrzebna w naszym projekcie::
+For simplicity, we exclude a powerful support for time zones in the database - it will not be needed
+in our project:
 
    # If you set this to False, Django will not use timezone-aware datetimes.
    USE_TZ = False
 
 
-Odkomentuj też dwie wskazane linie w ``INSTALLED_APPS``.
+Uncomment  two of lines indicated in ``INSTALLED_APPS``.
 
 ::
 
@@ -149,7 +150,7 @@ Odkomentuj też dwie wskazane linie w ``INSTALLED_APPS``.
    )
 
 
-Teraz pora na stworzenie bazy danych:
+Now it's time to create the database:
 
 .. code-block:: sh
 
@@ -179,14 +180,14 @@ Teraz pora na stworzenie bazy danych:
     Installing indexes ...
     Installed 0 object(s) from 0 fixture(s)
 
-Jeśli wszystko poszło dobrze Django poprosi Cię o podanie danych konta administratora.
+If all went well Django will ask you to provide an administrator account.
 
 
-Interfejs administracyjny
-=========================
+Administrative interface
+========================
 
-Teraz w pliku ``carrots/urls.py`` odkomentuj wszystkie linie poniżej ``Uncomment`` (poprzez usuniecie ``#`` z poczatku
-linii). Plik wynikowy powinien wygladac tak:
+Now the file ``carrots/urls.py`` uncomment all the lines below ``Uncomment`` (by removing the ``#``
+from the beginning of the line). The resulting file should look like this:
 
 .. code-block:: py
 
@@ -208,7 +209,7 @@ linii). Plik wynikowy powinien wygladac tak:
        url(r'^admin/', include(admin.site.urls)),
    )
 
-Potrzebujemy jeszcze narzędzi do dokumnetacji, uruchom:
+We need tools for documentation. Please run:
 
 .. code-block:: sh
 
@@ -217,7 +218,7 @@ Potrzebujemy jeszcze narzędzi do dokumnetacji, uruchom:
    Successfully installed docutils
    Cleaning up...
 
-Następnie uruchom serwer:
+Then start the server:
 
 .. code-block:: sh
 
@@ -230,17 +231,17 @@ Następnie uruchom serwer:
    Development server is running at http://127.0.0.1:8000/
    Quit the server with CTRL-BREAK.
 
-Potem wchodzimy na link http://localhost:8000/admin/.
+Then enter the link link http://localhost:8000/admin/.
 
 
-Tworzymy nową aplikację do ankiet.
-==================================
+We create a new application for surveys
+=======================================
 
-Na razie stworzyliśmy projekt ``carrots``. Projekty w Django dzielą się na aplikacje dostarczające określone funkcje.
+For now, we have created a draft ``carrots``. Projekty w Django dzielą się na aplikacje dostarczające określone funkcje.
 
-My chcemy umieścić na naszej stronie ankiety, dlatego dodamy aplikację ``polls``.
+We want to put surveys on our website, that’s why we will add application ``polls``.
 
-Z linii poleceń wpisz:
+From the command line type:
 
 ::
 
@@ -262,9 +263,10 @@ Z linii poleceń wpisz:
 
    2 directories, 14 files
 
-Po stworzeniu aplikacji trzeba ją jeszcze aktywować w naszym projekcie.
-W pliku ``carrots/settings.py`` musimy dodać aplikację ``polls`` do ``INSTALLED_APPS``.
-Efekt powinien wyglądać tak::
+After creating the application it must be activated in our project.
+In the file  ``carrots/settings.py`` we have to add the application polls ``polls`` to
+``INSTALLED_APPS``.
+The result should look like this::
 
     INSTALLED_APPS = (
         'django.contrib.auth',
@@ -281,17 +283,18 @@ Efekt powinien wyglądać tak::
         'polls',
     )
 
-Modele
+Models
 ======
 
-Następnym krokiem będzie zdefiniowanie modeli naszej aplikacji.
-Model opisuje co i w jaki sposób może być przechowywane w bazie danych.
+The next step is to define the model of our application.
+The model describes what and how it can be stored in the database.
 
-Nasza aplikacja będzie zawierać pytania oraz odpowiedzi do nich, dlatego utworzymy dwa modele: ``Poll`` oraz ``Choice``.
-Model ``Poll`` zawiera treść pytania i datę publikacji. Model ``Choice`` zawiera odwołanie do odpowiedniego pytania,
-treść odpowiedzi oraz liczbę głosów.
+Our application will include questions and answers to them, so we'll create two models:  ``Poll`` and
+``Choice``.
+Model ``Poll`` contains the contents of questions and date of publication. Model ``Choice`` contains a
+reference to the relevant questions, the content of responses and the number of votes.
 
-W pliku ``polls/models.py`` wpisujemy::
+In a file ``polls/models.py`` type::
 
     from django.db import models
 
@@ -304,12 +307,12 @@ W pliku ``polls/models.py`` wpisujemy::
         choice_text = models.CharField(max_length=200)
         votes = models.IntegerField(default=0)
 
-Dodając nowe modele zmieniliśmy schemat bazy danych.
-Musimy ponownie wykonać ``syncdb``, aby nowe modele pojawiły się w bazie danych.
+By adding new models we have changed the database schema.
+We need to make ``syncdb``, so that new models could appear in the database.
 
 .. warning::
-    Po wykonaniu ``syncdb`` nie można już dodać nowych pól do modelu. Można dodawać tylko nowe modele.
-    Są sposoby, żeby to obejść, ale o tym w innej bajce.
+    After the ``syncdb`` ou can not add new fields to the model. You can only add new models.
+    There are some ways to find a way around, but it's another story.
 
 .. code-block:: sh
 
@@ -321,9 +324,10 @@ Musimy ponownie wykonać ``syncdb``, aby nowe modele pojawiły się w bazie dany
    Installing indexes ...
    Installed 0 object(s) from 0 fixture(s)
 
-I tyle! Pewnie chcielibysmy jednak miec tez mozliwosc edytowania obiektow. Najlatwiej to zrobic w interfejsie administracyjnym.
+That’s it! Probably, however, we would like to be able to edit objects. Doing it in the administrative
+interface is the easiest way.
 
-Tworzymy plik ``polls/admin.py`` a w nim::
+Create a file ``polls/admin.py`` and there::
 
     from django.contrib import admin
     from polls.models import Poll, Choice
@@ -333,61 +337,64 @@ Tworzymy plik ``polls/admin.py`` a w nim::
 
 .. note::
 
-    Niektóre zmiany wymagają ponownego uruchomienia serwera.  W konsoli gdzie jest uruchomiony
-    serwer wciskamy ``Ctrl+C`` i wykonujemy ``python manage.py runserver`` ponownie.
+    Some changes require a server restart. In a console click ``Ctrl+C`` and then ``python manage.py
+    runserver`` again.
 
-Gdy wejdziemy ponownie na http://localhost:8000/admin/ zobaczymy, ze pojawila się tam nowa zakladka `Polls`.
+When we go back to http://localhost:8000/admin/ zobaczymy, see it’s visible that new bookmark `Polls`
+appeared.
 
 
-Zabawa w konsoli
-================
+Game in a console
+=================
 
-Django udostępnia swoją konsolę. Jest to zwykła konsola Pythona (tzn. możemy robić dokładnie te same rzeczy co po
-uruchomieniu polecenia ``python``), ale dodatkowo możemy korzystać z narzędzi i modeli Django.
+Django provides its console. It is a simple Python console (where we can do exactly the same thing as
+when you run ``python``), but also we can use the tools and models of Django.
+
 
 .. code-block:: sh
 
    ~$ python manage.py shell
 
-Gdy już jesteś w shellu::
+When you are in a shell already::
 
     >>> from polls.models import Poll, Choice
 
-    # Wszystkie ankiety w bazie, teraz nie ma tam nic, dlatego dostajemy pustą listę
+    # All the surveys in the database, and now there's nothing here, so we get an empty list
     >>> Poll.objects.all()
     []
 
-    # Tworzymy pierwszą ankiete.
+    # We create first survey.
     >>> import datetime
     >>> p = Poll(question="What's new?", pub_date=datetime.datetime.now())
 
-    # Zapisujemy ankiete w bazie danych. W tym celu zawsze trzeba wywołać metodę save().
+    # Save the poll in the database. For this purpose, you always need to call save ().
     >>> p.save()
 
-    # Każdy obiekt w bazie danych ma przypisane unikalne dla siebie ID.
+    # Each object in the database is assigned to a unique ID .
     >>> p.id
     1
 
-    # p jest zwykłym obiektem. Możemy czytać jego atrybuty.
+    # p is a simple object. We can read his attributes.
     >>> p.question
     "What's new?"
     >>> p.pub_date
     datetime.datetime(2012, 2, 26, 13, 0, 0, 775217)
 
-    # Po zmianie atrybutów ponownie wywołujemy save() aby zapisać zmiany do bazy.
+    # After the changing of attributes we again call save() to save changes.
     >>> p.question = "What's up?"
     >>> p.save()
 
-    # objects.all() zwraca liste wszystkich obiektow w bazie danych
+    # objects.all() returns a list of all the objects in the database
     >>> Poll.objects.all()
     [<Poll: Poll object>]
 
-Modele w Django są klasami, a w klasach możemy definiować metody. Metoda to taka funkcja, która dodatkowo dostaje
-parametr ``self`` będący aktualnym obiektem (np aktualną ankietą). Metody w klasach (modelach) pozwalają dodawać
-dodatkowe zachowania lub zmieniać istniejące.
+Django models are classes and classes can define methods. The method is one function that gets extra 
+parameter ``self`` which is the current object (for example, the current survey). Methods in classes (
+models) allow you to add additional behaviors or change existing ones.
 
-Jedną z takich metod jest ``__str__``, która pozwala zmienić sposób wyświetlania modelu (ankiety lub pytania).
-``<Poll: Poll object>`` niewiele nam mówi. Naprawmy to dodając metodę ``__str__`` do ``Poll`` i ``Choice``::
+One such method is the ``__str__``, which allows you to change the display of the model (or survey
+questions).
+``<Poll: Poll object>`` doesn’t tell us much. Let's fix that by adding the ``__str__`` do ``Poll`` and ``Choice``::
 
     class Poll(models.Model):
         # ...
@@ -399,10 +406,10 @@ Jedną z takich metod jest ``__str__``, która pozwala zmienić sposób wyświet
         def __str__(self):
             return self.choice_text
 
-Django będzie używało tych metod przy wyświetlaniu obiektów, nie tylko w konsoli, ale rownież we wspomnianym wcześniej
-interfejsie administracyjnym.
+Django will use these methods for displaying objects, not just in the console, but also in, mentioned
+before, the administrative interface.
 
-Możemy też dodawać inne metody::
+We can also add other methods::
 
     import datetime
     from django.utils import timezone
@@ -412,22 +419,24 @@ Możemy też dodawać inne metody::
         def was_published_recently(self):
             return self.pub_date >= datetime.datetime.now() - datetime.timedelta(days=1)
 
-Zauważcie, że musielismy dodać ``import datetime`` aby móc używac obiektów reprezentujących czas w Pythonie.
+Note that we had to add an import datetime to use objects representing the time in Python.
 
-Zapiszmy te zmiany i uruchommy intepreter za pomocą polecenia ``python manage.py shell`` raz jeszcze::
+Let’s save the changes and run intepreter with the command ``python manage.py shell`` once again::
 
     >>> from polls.models import Poll, Choice
 
-    # Sprawdzmy czy dziala nasza nowa metoda __str__()
+    # Let’s find out if our method __str__() works
     >>> Poll.objects.all()
     [<Poll: What's up?>]
 
-Do tej pory używaliśmy metody ``all``, która pozwala wyciągnąć listę wszystkich obiektów danego typu (np wszystkich
-pytań). Istnieją też inne metody, pozwalające wyciągnąć obiekty spełniające określone warunki:
+We have used  ``all``,the methods which allow you to draw a list of all objects of that type (for
+example all questions). There are other methods that allow to draw objects that meet certain
+conditions:
 
 .. code-block:: python
 
-    # Django pozwala na bardzo latwe wyszukiwanie obiektow w bazie danych. Spojrzmy na kilka przykladow.
+    # Django provides a very easy search of the objects in the database. Let's look at some examples.
+
     >>> Poll.objects.filter(id=1)
     [<Poll: What's up?>]
     >>> Poll.objects.filter(question__startswith='What')
@@ -435,64 +444,65 @@ pytań). Istnieją też inne metody, pozwalające wyciągnąć obiekty spełniaj
     >>> Poll.objects.get(pub_date__year=2012)
     <Poll: What's up?>
 
-    # Proba pobrania nieistniejacego obiektu spowoduje silne protesty Pythona.
-    # Ale do tego jestesmy juz przyzwyczajeni.
+    # The attempt to retrieve a nonexistent object will make a strong protest of Python.
+    # But we already get used to this.
     >>> Poll.objects.get(id=2)
     Traceback (most recent call last):
         ...
     DoesNotExist: Poll matching query does not exist. Lookup parameters were {'id': 2}
 
-    # Wyprobujmy teraz nasza wlasna metode.
+    # Let’s try our own method.
     >>> p = Poll.objects.get(pk=1)
     >>> p.was_published_recently()
     True
 
-Możemy też uzyskać dostęp do odpowiedzi (``Choice``) na pytania:
+We can also gain access to the answers (``Choice``) questions:
 
 .. code-block:: python
 
-    # Na razie nasza ankieta nie zawiera żadnych pytań. Dodajmy trochę!
+    # For now our survey did not include any questions. Let's add some!
     >>> p.choice_set.all()
     []
 
-    # ... na przykład trzy. Użyjemy do tego metody "create". W wyniku dostaniemy obiekt "Choice".
+    # ... for example three. We will use the method "create". As a result, we get an object "Choice".
     >>> p.choice_set.create(choice_text='Not much', votes=0)
     <Choice: Not much>
     >>> p.choice_set.create(choice_text='The sky', votes=0)
     <Choice: The sky>
     >>> c = p.choice_set.create(choice_text='Just hacking again', votes=0)
 
-    # Mając obiekt "Choice" możemy też znaleźć ankietę, do której należy.
+    # With object "Choice" we can find the survey, to which it belongs.
     >>> c.poll
     <Poll: What's up?>
 
-    # ...I na odwrót, wszystkie odpowiedzi dla danej ankiety
+    # ...conversely, all of the answers to the questionnaire
     >>> p.choice_set.all()
     [<Choice: Not much>, <Choice: The sky>, <Choice: Just hacking again>]
     >>> p.choice_set.count()
     3
 
-    # A teraz coś trudniejszego. Co to zapytanie robi?
+    # And now something more difficult. What this question does?
     >>> Choice.objects.filter(poll__pub_date__year=2012)
     [<Choice: Not much>, <Choice: The sky>, <Choice: Just hacking again>]
 
-    # Na koniec usuńmy jedno z pytan. Służy do tego metoda ``delete``.
+    # Finally, let's remove one of the questions. Use method ``delete``.
     >>> c = p.choice_set.filter(choice_text__startswith='Just hacking')
     >>> c.delete()
 
 
 
-Wyswietlanie stron internetowych
-================================
+Screening of websites
+=====================
 
-Wejście pod główny adres http://localhost:8000/ nadal powoduje wyświetlenie brzydkiej strony błędu. Nie może tak dalej
-być!
+Enter the main address http://localhost:8000/ still displays an ugly error page. It can not be like
+that!
 
-Dobrze jest zacząć pracę nad nowym serwisem internetowym od przemyślenia struktury URLi (adresów). Wiemy, ze będziemy
-chcieli wyświetlić listę wszystkich ankiet na stronie, pozwolic użytkownikom zagłosowac oraz wyświetlić zbiorcze wyniki
-ankiety.
+It's good to start working on a new website from reflection about structure of URLs (addresses).
+Wiemy, ze będziemy
+We want to see a list of all polls on the site, let users vote and view aggregated results of the 
+survey.
 
-Jeszcze raz otwórzmy plik ``urls.py`` i dodajmy cztery nowe wpisy, ostatecznie plik powinien wyglądać następująco::
+Again, let's open the file ``urls.py`` add four new entries. Eventually file should look like this::
 
   from django.conf.urls import patterns, include, url
 
@@ -507,35 +517,39 @@ Jeszcze raz otwórzmy plik ``urls.py`` i dodajmy cztery nowe wpisy, ostatecznie 
       url(r'^admin/', include(admin.site.urls)),
   )
 
-Przyjrzyjmy się temu przykładowi raz jeszcze. Każdy argument przekazany do funkcji ``patterns`` (poza pierwszym, ale
-o tym potem) określa nam wzorzec URL (adresu). Wzorzec ten zapisany jest za pomocą
-`wyrażenia regularnego <http://pl.wikipedia.org/wiki/Wyra%C5%BCenie_regularne#Wyra.C5.BCenia_regularne_w_praktyce>`_.
-Jest to trudne techniczne określenie na malutki język,służący do zwięzłej reprezentacji wzorćów tekstu.
+Let's look at this example again. Each argument passed to the function ``patterns`` (except for the
+first, but more on that later) determines our standard URL (address). This pattern is written using a
+`regular expression. <http://pl.wikipedia.org/wiki/Wyra%C5%BCenie_regularne#Wyra.C5.
+BCenia_regularne_w_praktyce>`_.
+This is a difficult technical term for tiny language used for concise representation of a pattern.
 
-Kiedy użytkownik próbuje wejść na określony adres na naszej stronie, taki jak http://localhost:8000/polls/1/
-Django wybiera część URL po trzecim ukośniku (w tym przypadku ``polls/1/``)  i próbuje ją kolejno dopasować do wyrazeń
-regularnych z ``urlpatterns``. Przyjrzyjmy się przykładowi takiego wyrazenia::
+When a user tries to enter a specific address on our website, such as http://localhost:8000/polls/1/
+selects the third part of the URL after the slash (in this case ``polls/1/``)  and try  turn it into a
+regular expression to match the``urlpatterns``. Let's look at an example of such expressions::
 
   r'^polls/(?P<poll_id>\d+)/vote/$'
 
-Tak naprawdę jest to normalny ciąg znaków (może poza poczatkowym ``r``, które jest tu używane tylko dla wygody).
-Kiedy próbujemy do niego dopasować tekst (nadal myślimy o ``polls/1/``), musimy pamietać o następujacych zasadach:
+This is a normal string (maybe except for the initial ``r``, which is used here only for convenience). 
+When we try to fit the text (still thinking of ``polls/1/``),we need to remember the following:
 
-.. admonition:: Wyrażenia regularne
+.. admonition:: Regular expressions
    :class: alert alert-info
 
-   * Każda litera i cyfra wyrażenia regularnego pasuje tylko do takiej samej litery/cyfry ciągu dopasowywanego. Tak samo
-     ukosnik (``/``), spacja (`` ``), podkreślenie (``_``) i myślnik (``-``).
-   * ``^`` pasuje tylko do początku ciągu znaków (nie do znaku, "początek" należy tutaj traktować jak abstrakcyjny twór
-     przed pierwszym znakiem).
-   * ``$`` pasuje tylko do końca ciągu znaków (na podobnej zasadzie co "początek").
-   * Kropka (``.``) pasuje do dowolnego znaku.
-   * Jeżeli kilka znaków obejmiemy nawiasami kwadratowymi, np. tak ``[aBde]``, taka grupa liczy się jako jedna całość i
-     dopasuje się do dowolnego jednego znaku z wewnątrz grupy.
-   * Istnieje skrótowa notacja dla takich grup. Zamiast wypisywać wszystkie małe litery alfabetu, możemy napisac ``[a-z]``
-     aby dopasować dowolną jedną małą literę. Tak samo dla dużych liter ``[A-Z]`` lub cyfr ``[0-9]``.
-   * Dopasować jedną cyfrę można jeszcze krócej, używając znaczka ``\d``.
-   * Jeżeli po dowolnym z powyższych wyrażeń postawimy znak ``?``, zostanie ono potraktowane jako *opcjonalne*. Oznacze
+   * Each letter and number of the regular expression applies  to the same letters / numbers over 
+     matched string. The same us slash (``/``),  space (`` ``), the underscore (``_``) and hyphen (``-``).
+   * ``^`` applies only to the beginning of the string (no to string,  "beginning" is here as a 
+     abstraction before the first string).
+   * ``$`` matches only at the end of the string (on the similar base as "beginning").
+   * The dot (``.``) matches any character.
+   * If several characters will embraced in the square brackets, like this  ``[aBde]`` the group 
+     counts as one unit and will match any one character within the group.
+   * There is a shorthand notation for such groups. Rather than write out all the small letters of the
+     alphabet, we can write ``[a-z]`` to match any single lowercase letter. Same for the upper case letters``[A-Z]`` or digits``[0-9]``.
+   * Matching one number can be even shorter by using the stamp ``\d``.
+   * If after any of the above expressions we put the sign ``?``, it will be treated as
+     *opcjonalne*. 
+
+     Oznacza
      to, ze jeżeli w ciągu dopasowywanym nie będzie takiego wyrażenia, nadal będzie mozliwe jego dopasowanie. Jeżeli
      będzie, zostanie dopasowane.
    * Jeżeli po wyrażeniu postawimy znak ``*`` dopasuje się ono z dowolną ilością powtorzeń wyrażenia (wliczając w to zero

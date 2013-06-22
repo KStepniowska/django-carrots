@@ -1,17 +1,14 @@
-=========================
-Przewodnik Django Carrots
-=========================
+=======================
+Django Carrots tutorial
+=======================
 
-Masz przed sobą przewodnik do nauki Pythona i Django.
-Nawet jeśli nie umiesz jeszcze programować, podążając za przewodnikiem i wykonując wszystkie ćwiczenia, powinnaś/powinieneś być w stanie stworzyć własną stronę internetową i zintegrować ją z Facebookiem.
+You have in front of you a guide to learn Python and Django. Even if you can not even program, by following the guide and doing all the exercises  you should be able to create your own website and integrate it with Facebook.
 
-Przewodnik jest częścią warsztatów Django Carrots organizowanych przez Geek Girls Carrots.
-Możesz go użyć przy organizacji własnych warsztatów lub do samodzielnej nauki.
-Jeżeli zdecydujesz się skorzystać z przewodnika, będziemy wdzięczne za kontakt (nie jest to jednak wymagane).
+The guide is a part of the workshop Django Carrots organized by Geek Girls Carrots. You can use it to organize your own workshops or for self-study. If you decide to use a guide, we will be grateful for the contact (this is not required).
 
 
-Spis treści
------------
+Table of contents
+-----------------
 
 .. toctree::
    :maxdepth: 2

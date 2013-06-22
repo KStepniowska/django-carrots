@@ -1,25 +1,22 @@
-==========
-Instalacja
-==========
+===========
+Instllation
+===========
 
-Na potrzeby naszych warsztatów będzie nam potrzebny interpreter języka
-Python w wersji 3.2 lub 3.3. Poniżej znajdują się wskazówki jak
-sprawdzić czy już go nie mamy, ewentualnie zainstalować wraz z
-przydatnymi narzędziami.
+During our workshops we will need an interpreter for Python language, version 3.2. or 3.3. There are 
+some tips below how to easily check if we already have interpreter we need or how install it quickly:
 
 Windows
 =======
 
-Wersje dla Windows można pobrać bezpośrednio ze strony `python.org`_.
-Po ściągnięciu pliku ``*.exe`` uruchom go i postępuj zgonie z instrukcjami.
-Ważne jest aby zapamiętać ścieżkę, którą wybraliśmy jako katalog instalaji,
-bo będzie nam ona potrzebna przy :ref:`instalacji narzędzi <narzędzia>`.
+You can download it directly from python.org. After download of file ``*.exe``, please start the program 
+and then follow the instructions. It is important to remember path of installation, because it will be 
+helpful during the installation of tools :ref:`installation of tools <tools>`.
 
 
-Linux (Ubuntu, Fedora, etc.) lub Mac
-====================================
+Linux (Ubuntu, Fedora, etc.) or Mac
+===================================
 
-Aby sprawdzić czy i jaką wersję mamy wpisz w linii poleceń:
+Check in your Command Line by:
 
 .. code-block:: sh
 
@@ -27,142 +24,141 @@ Aby sprawdzić czy i jaką wersję mamy wpisz w linii poleceń:
     Python 3.3.1
 
 
-Jeśli nie ma dostępnej komendy python, lub wypisuję ona nieodpowiednią wersję.
+If the command python is not available or if it prints the wrong version:
 
 Ubuntu
 ------
 
-W linii poleceń wpisz::
+Write in a command line type::
 
     sudo apt-get install python3
 
 Fedora
 ------
 
-W linii poleceń wpisz::
+Write in a command line type::
 
     sudo yum install python3
 
 OS X
 ----
 
-Ściągnij i zainstaluj paczkę dla twojej wersji systemu ze strony `python.org`_.
+Download and install the package for your version from `python.org`_.
 
 
-Inne
-----
+Others
+------
 
-Użyj systemu paczek odpowiedniego dla twojej dystrybucji. Jeśli takiego nie ma
-lub nie możesz znaleźć Python'a, to możesz go zainstalować używając źródeł
-za strony `python.org`_. Wymagany będzie kompilator i biblioteka readline.
+Use the package system from your Linux distribution. If it dosen't exist or you can't find Python, 
+then you can install it using the `python.org`_ sources. You should have a compiler and  readline 
+library.
 
-Po cichu zakładamy, że użytkownicy mniej popularnych (nie znaczy gorszych)
-dystrybucji na pewno sobie poradzą z tym zadaniem :).
+Silently we assume that users of less popular (not to say worse) distribution certainly will cope with 
+this task :).
 
 
 
-.. _narzędzia:
+.. _tools:
 
-Narzędzia
-=========
+Tools
+=====
 
-Linia poleceń Windows
----------------------
+Windows command line
+--------------------
 
-Większość pracy będziemy wykonywać z linii poleceń. Aby uruchomić linię
-poleceń Windows kliknij ``Start`` a następnie ``Uruchom...``. W otwartym oknie
-wpisz ``cmd`` i kliknij ``OK``. Pojawi się nowe okno z białym tekstem na
-czarnym tle:
+Most of the work we will do from a command line. To run a command line in Windows please click on 
+``Start`` and then ``Uruchom...``. In a open window type ``cmd`` and click ``OK``. New window will 
+appear with a white text on black background:
+
 
 .. code-block:: bat
 
-    Microsoft Windows [Wersja 6.1.7601]
-    Copyright (c) 2009 Microsoft Corporation. Wszelkie prawa zastrzeżone.
+    Microsoft Windows [Version 6.1.7601]
+    Copyright (c) 2009 Microsoft Corporation. All rights reserved.
 
     C:\Users\Imie>
 
-Tekst może trochę się różnić w zależności od używanej warsji Windowsa.
+Text may be different depending on version of Windows you use.
 
-``C:\Users\Imie>`` to tak zwany ``prompt``. Informuje nas o katalogu, w którym
-aktualnie się znajdujemy oraz czeka na podanie polecenia. W dalszej części
-warsztatów ``C:\Users\Imie>`` będziemy czasem skracać do  ``~$``, niezależnie
-od używanego systemu (Windows, Linux, MacOS).
+``C:\Users\Imie>`` is a ``prompt``. It informs us of the directory in which we are currently in and 
+waits for the command. Later ``C:\Users\Imie>`` we will cut to the  ``~$``, independently of your 
+operating system (Windows, Linux, MacOS).
 
-Z linii poleceń można poruszać się po zawartości dysku (podobnie jak po
-wejściu w ``Mój komputer``). Służą do tego polecenia:
+From the command line you can move up and down to drive (similarity as in "My computer"). There are
+the commands for that:
 
 ``dir``
-    Wyświetla zawartość aktualnego katalogu. Przykładowo, jeżeli ``prompt``
-    pokazuje katalog ``C:\Users\Imie``, to polecenie ``dir`` wyświetli zawartość
-    naszego katalogu domowego.
+    Displays the contents of the current directory. For example, if the ``prompt``
+    shows ``C:\Users\Imie``, the ``dir`` command displays the contents of our home directory.
+
 
 ``cd katalog``
-    Zmiana aktualnego katalogu. Przykładowo będąc w katalogu ``C:\Users\Imie``,
-    wykonanie ``cd Documents`` spowoduje wejście do katalogu z naszymi
-    dokumentatmi. Możesz teraz sprawdzić co spowoduje wykonanie polecenia ``dir``
-    i widzisz coś znajomego.
+    Change of the current directory. For example, while you’re in the ``C:\Users\Imie``,
+    execute  ``cd Documents`` will access the directory with our data. You can now check what will 
+    execute the ``dir`` command and see something familiar.
 
-    Polecenie ``cd..`` spowoduje przejście do wyższego katalogu.
+    The command ``cd..`` will move you to the upper directory.
 
-``mkdir katalog``
-    Utworzenie nowego katalogu
+``mkdir directory``
+    Create a new directory.
 
 
-Środowisko wirtualne
---------------------
+The virtual environment
+-----------------------
 
-Gdy już mamy działającego Python'a, zainstalujemy jeszcze jeden program, który
-uprości instalację innych Python'owych programów i usprawni nam pracę.
+While we already have our well working Python, let’s install one more program which will simplify
+installation of other programs and improve our work.
 
-Pobierz skrypt `virtualenv.py`_ do swojego katalogu domowego i otwórz konsolę.
+
+Download the script `virtualenv.py`_ o your home directory and open the console.
 
 .. code-block:: bat
 
     :: Windows
-    C:\Users\lrekucki> C:\Python33\python virtualenv.py warsztaty --system-site-packages --distribute
+    C:\Users\lrekucki> C:\Python33\python virtualenv.py workshops --system-site-packages --distribute
 
 .. code-block:: sh
 
     # Linux i Mac
-    ~$ python3.3 virtualenv.py warsztaty --system-site-packages --distribute --python=python3
+    ~$ python3.3 virtualenv.py workshops --system-site-packages --distribute --python=python3
 
 
-W twoim katalogu domowym powstanie katalog ``warsztaty`` zawierający tzw.
-wirtualne środowisko. Na razie istotne jest dla nas tylko to, że po jego aktywacji:
+In your home directory will appear directory ``workshops`` containing co-called virtual environment. 
+For now, it is important for us that after it’s activation:
 
 .. code-block:: bat
 
     :: Windows
-    C:\Users\lrekucki> warsztaty\Scripts\activate
+    C:\Users\lrekucki> workshops\Scripts\activate
 
 .. code-block:: sh
 
     # Linux i Mac
-    ~$ source warsztaty/bin/activate
+    ~$ source workshops/bin/activate
 
-Komenda python będzie uruchamiała dobrą wersję Python'a, więc nie będziemy
-musieli ani dopisywać pełnej ścieżki na początku, ani wersji na końcu.
+Python command will run good version of Python, so we will not have to type the full path to the 
+beginning or to the end of version.
 
-Uruchom w terminalu
+Run in a terminal
 
 .. code-block:: bat
 
     :: Windows
-    (warsztaty) C:\Users\lrekucki>where python
-    C:\Users\lrekucki\warsztaty\Scripts\python.exe
+    (workshops) C:\Users\lrekucki>where python
+    C:\Users\lrekucki\workshops\Scripts\python.exe
     ...
 
-    (warsztaty) C:\Users\lrekucki>python --version
+    (workshops) C:\Users\lrekucki>python --version
     3.3.1
 
 .. code-block:: sh
 
     # Linux i Mac
-    (warsztaty) ~$ which python
-    /home/lrekucki/warsztaty/bin/python.exe
+    (workshops) ~$ which python
+    /home/lrekucki/workshops/bin/python.exe
     ...
 
-    (warsztaty) ~$ python --version
+    (workshops) ~$ python --version
     3.3.1
 
 
@@ -173,8 +169,8 @@ Uruchom w terminalu
 IPython
 -------
 
-Zainstaluj ``IPython``
+Install ``IPython``
 
 .. code-block:: sh
 
-    (warsztaty) ~$ pip install ipython
+    (workshops) ~$ pip install ipython
